@@ -19,6 +19,7 @@ class TodoForm extends React.Component{
             newTask: ''
         })
     }
+    
     render(){
         return(
             <form onSubmit={this.handleSubmit}>

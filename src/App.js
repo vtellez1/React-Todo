@@ -3,6 +3,8 @@ import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 
+import "./components/TodoComponents/Todo.css";
+
 const todos = [
   {
     task: 'Organize Garage',
@@ -29,14 +31,32 @@ constructor(){
 
 addTask = newTaskText =>{
 
-const newTask={
-  task: newTaskText,
-  id: Date.now(),
-  completed: false
+  const newTask={
+    task: newTaskText,
+    id: Date.now(),
+    completed: false
+  }
+
+  this.setState({
+    todos: [...this.state.todos, newTask]
+  });
 }
+
+toggleCompleted = id =>{
+
 this.setState({
-  todos: [...this.state.todos, newTask]
-});
+  todos: this.state.todos.map(item =>{
+    if (item.id === id){
+      return {
+        ...item,
+        completed: !item.completed
+      }
+    } else{
+      return item;
+    }
+  })
+})
+
 }
 
   render() {
@@ -47,7 +67,9 @@ this.setState({
         </div> 
 
         <div className="TodoList">
-        <TodoList todos={this.state.todos}/>
+        <TodoList 
+        toggleCompleted={this.toggleCompleted} 
+        todos={this.state.todos}/>
         </div>
       
         <TodoForm addTask={this.addTask}/>
