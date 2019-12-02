@@ -30,20 +30,17 @@ constructor(){
 }
 
 addTask = newTaskText =>{
-
   const newTask={
     task: newTaskText,
     id: Date.now(),
     completed: false
   }
-
   this.setState({
     todos: [...this.state.todos, newTask]
   });
 }
 
 toggleCompleted = id =>{
-
 this.setState({
   todos: this.state.todos.map(item =>{
     if (item.id === id){
@@ -53,10 +50,19 @@ this.setState({
       }
     } else{
       return item;
-    }
+      }
+    })
   })
-})
+}
 
+filterCompleted = id =>{
+  this.setState({
+    todos: this.state.todos.filter(item =>{
+      return !item.completed;
+    }
+
+    )
+  })
 }
 
   render() {
@@ -72,7 +78,7 @@ this.setState({
         todos={this.state.todos}/>
         </div>
       
-        <TodoForm addTask={this.addTask}/>
+        <TodoForm filterCompleted={this.filterCompleted} addTask={this.addTask}/>
       </div>
     );
   }

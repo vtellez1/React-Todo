@@ -19,13 +19,13 @@ class TodoForm extends React.Component{
             newTask: ''
         })
     }
-    
+
     render(){
         return(
             <form onSubmit={this.handleSubmit}>
                 <input value={this.state.newTask} onChange={ this.handleChanges} type="text" name="item"/>
                 <button>Add ToDo</button>
-                <button> Clear Completed</button>
+                <button onClick={this.props.filterCompleted}> Clear Completed</button>
             </form>
         );
     }
