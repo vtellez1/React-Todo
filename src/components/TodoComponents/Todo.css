@@ -1,3 +1,26 @@
+body{
+    background-image: url("https://images.unsplash.com/photo-1526280524276-51b1c8a46321?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2767&q=80");
+    background-size: cover;
+    
+}
+h1{
+    text-decoration: underline;
+}
+.App{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid pink;
+    background: rgba(155, 82, 173, 0.1);
+    width: 50%;
+    padding: 4rem 0rem;
+    margin: 0 auto;
+}
+
+.TodoList{
+ width: 50%;
+ padding: 1rem 0rem;
+}
 
 .item.completed {
     text-decoration: line-through;

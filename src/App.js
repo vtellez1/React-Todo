@@ -68,8 +68,9 @@ filterCompleted = id =>{
   render() {
     return (
       <div className="App">
+
         <div className="Header">
-          <h2>My Todo App!</h2>
+          <h1>My Todo List:</h1>
         </div> 
 
         <div className="TodoList">
@@ -77,8 +78,10 @@ filterCompleted = id =>{
         toggleCompleted={this.toggleCompleted} 
         todos={this.state.todos}/>
         </div>
-      
+        
+      <div className="FormContainer">
         <TodoForm filterCompleted={this.filterCompleted} addTask={this.addTask}/>
+        </div>
       </div>
     );
   }
